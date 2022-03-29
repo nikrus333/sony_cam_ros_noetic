@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
   if (!realtime) {
     return 0;
   }
-  NVCamera cam();
+  NVCamera cam;
   if (cam.CameraConnected()) {
     while (ros::ok()) {
       size = cam.PreviewToMemory((uint8_t **)&data);
