@@ -35,6 +35,9 @@ int main(int argc, char **argv) {
     while (ros::ok()) {
       size = cam.PreviewToMemory((uint8_t **)&data);
       cv::Mat raw_data(1, size, CV_8UC1, (void *)data);
+      //сигнатура метода imdecode это cv::InputArray, ты посылаешь туда Mat.
+      //Поэтому происходит неявное преобразование и на 10 герцах у меня вылетал
+      //сегфолт
       cv::Mat img = imdecode(raw_data, cv::IMREAD_ANYCOLOR);
       msgv = cv_bridge::CvImage(std_msgs::Header(), "bgr8", img).toImageMsg();
       pub_frame.publish(msgv);
