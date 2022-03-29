@@ -31,7 +31,7 @@ int main(int argc, char **argv)
   n.getParam("realtime", realtime);
   if (realtime == true) {
     NVCamera* cam = new NVCamera;
-  
+
     if (cam->CameraConnected()) {
       while (ros::ok())
       {
@@ -46,8 +46,10 @@ int main(int argc, char **argv)
         loop_rate.sleep();
       }
     }
+    ROS_ERROR("camera not found");
     delete cam;
   }
+  ROS_INFO("delete node sony_photo_talker");
   ros::shutdown();
   return 0;
 }
