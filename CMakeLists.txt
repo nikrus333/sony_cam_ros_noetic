@@ -16,3 +16,4 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 add_executable(photo_talker src/photo_talker.cpp src/nvcam.cpp)
 target_link_libraries(photo_talker  gphoto2 ${catkin_LIBRARIES})
 #add_dependencies(talker beginner_tutorials_generate_messages_cpp)
+#
