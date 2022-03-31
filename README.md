@@ -22,4 +22,5 @@ LD_LIBRARY_PATH=/usr/local/lib
 # Запуск программы
 # переходим в ws
 source devel/setup.bash
+ 
 rosrun sony_photo_pub photo_talker 
