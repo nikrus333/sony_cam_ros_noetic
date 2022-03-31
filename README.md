@@ -19,4 +19,7 @@ LD_LIBRARY_PATH=/usr/local/lib
 
 # Потом исходники можно удалить.
 
-# Программы с управлением камерой компилировать g++ -lgphoto2 -lgphoto2_port
+# Запуск программы
+# переходим в ws
+source devel/setup.bash
+rosrun sony_photo_pub photo_talker 
