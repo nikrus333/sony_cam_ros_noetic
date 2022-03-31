@@ -28,6 +28,7 @@ int main(int argc, char **argv) {
   sensor_msgs::ImagePtr msgv;
   n.getParam("realtime", realtime);
   if (!realtime) {
+    
     return 0;
   }
   NVCamera cam;
