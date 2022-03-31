@@ -24,7 +24,7 @@ int main(int argc, char **argv) {
 
   image_transport::ImageTransport it(n);
   image_transport::Publisher pub_frame = it.advertise("photo", 1);
-  ros::Rate loop_rate(5);
+  ros::Rate loop_rate(1);
   sensor_msgs::ImagePtr msgv;
   n.getParam("realtime", realtime);
   if (!realtime) {
@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
   NVCamera cam;
   if (cam.CameraConnected()) {
     while (ros::ok()) {
-      size = cam.PreviewToMemory((uint8_t **)&data);
+      size = cam.ShotToMemory((uint8_t **)&data);
       cv::Mat raw_data(1, size, CV_8UC1, (void *)data);
       //сигнатура метода imdecode это cv::InputArray, ты посылаешь туда Mat.
       //Поэтому происходит неявное преобразование и на 10 герцах у меня вылетал
